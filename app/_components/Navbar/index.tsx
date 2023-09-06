@@ -1,23 +1,8 @@
-'use client';
-
 import Image from 'next/image';
-// import { getCompanies } from '../../_actions';
-// import { Company } from '../../_types/mockedCompanies';
 import SearchBox from '../SearchBox';
 import NavItem from './NavItem';
 
 const Navbar = () => {
-  // const searchCompanies = async (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   let companies: Company[] = [];
-  //   if (e.target.value !== '' || e.target.value.length > 0) {
-  //     companies = await getCompanies(
-  //       process.env.NEXT_PUBLIC_MOCKED_COMPANIES_URL as string,
-  //       e.target.value,
-  //     );
-  //   }
-
-  //   return companies;
-  // };
   return (
     <header>
       <nav className='relative flex w-full items-center justify-center bg-sws_dark py-1 text-white shadow-lg border-b-sws_grey-light border-b-2 lg:py-2'>

@@ -9,7 +9,7 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 
-import { FC, useMemo } from 'react';
+import { FC, useMemo, memo } from 'react';
 import {
   rotatePointLabelsPlugin,
   stripedBackgroundPlugin,
@@ -49,6 +49,7 @@ const Snowflake: FC<Props> = ({ scoreData }) => {
         options={{
           maintainAspectRatio: false,
           responsive: true,
+          animation: false,
           backgroundColor: 'black',
           layout: { padding: { bottom: 10 } },
           scales: {
@@ -98,4 +99,4 @@ const Snowflake: FC<Props> = ({ scoreData }) => {
   );
 };
 
-export default Snowflake;
+export default memo(Snowflake);

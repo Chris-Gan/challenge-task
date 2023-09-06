@@ -19,7 +19,7 @@ const CardBody: FC<Props> = ({ data }) => {
     growth_3y,
     price_target,
     description,
-    currency_info: { reporting_currency_iso },
+    currency_info: { reporting_currency_iso, reporting_currency_symbol },
   } = data;
   const currencyIso = reporting_currency_iso.toLowerCase();
   const formattedStockPrice = share_price.toLocaleString(currencyIso, {
@@ -39,12 +39,13 @@ const CardBody: FC<Props> = ({ data }) => {
 
   const formattedPE = pe ? `${pe.toFixed(1)}x` : 'n/a';
 
-  const formattedTargetPrice = price_target?.toLocaleString(currencyIso, {
-    style: 'currency',
-    currency: reporting_currency_iso,
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  const formattedTargetPrice = `${reporting_currency_symbol}${price_target?.toLocaleString(
+    currencyIso,
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    },
+  )}`;
   return (
     <>
       <div className='relative inline-block'>

@@ -18,7 +18,7 @@ const CustomisedCard: FC<Props> = ({ data }) => {
   const { main_thumb, primary_industry } = gridData;
 
   return (
-    <div className='relative flex bg-gray-800 flex-col items-center rounded-md border-solid border-3 border-red mr-5 mb-20 min-w-[270px] max-w-[270px]'>
+    <div className='relative flex bg-gray-800 flex-col items-center rounded-md mr-5 mb-10 min-w-[280px] max-w-[280px]'>
       {main_thumb && (
         <Image
           priority
@@ -30,7 +30,7 @@ const CustomisedCard: FC<Props> = ({ data }) => {
         />
       )}
       <Snowflake scoreData={score.data} />
-      <div className='relative w-full top-9 px-4 flex flex-col  '>
+      <div className='relative w-full top-9 px-4 pb-10 flex flex-col  '>
         <CardHeader
           firmAbbreviation={ticker_symbol}
           industry={primary_industry.name}

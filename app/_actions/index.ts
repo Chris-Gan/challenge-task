@@ -1,6 +1,5 @@
 'use server';
 
-import { Company } from '../_types/mockedCompanies';
 import {
   GetListingsPayload,
   NestedCondition,
@@ -8,31 +7,12 @@ import {
   TripleItemCondition,
 } from '../_types/services';
 
-export const getCompanies = async (
-  endpoint: string,
-  search: string,
-): Promise<Company[]> => {
-  const response = await fetch(endpoint);
-  const mockCompanies = (await response.json()) as Company[];
-
-  const modifiedMockedCompanies = mockCompanies.map((company) => ({
-    ...company,
-    flagImage: `https://flagcdn.com/w640/${company.countryCode.toLowerCase()}.png`,
-  }));
-
-  return modifiedMockedCompanies
-    .filter((company) =>
-      company.name.toLowerCase().includes(search.toLowerCase()),
-    )
-    .slice(0, 5);
-};
-
 export const getListings = async (
   country?: string,
   industryId?: number,
   filter?: TripleItemCondition,
   pageNumber: number = 1,
-  size: number = 100,
+  size: number = 20,
 ): Promise<ResponseInterface> => {
   const offset =
     pageNumber === undefined || pageNumber === 1 ? 0 : (pageNumber - 1) * size;

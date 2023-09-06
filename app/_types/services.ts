@@ -1,9 +1,3 @@
-export interface UserInterface {
-  logged_in: boolean;
-  country_iso: string;
-  currency: string;
-}
-
 export interface ScoreData {
   value: number;
   income: number;
