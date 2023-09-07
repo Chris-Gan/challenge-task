@@ -21,8 +21,7 @@ const CustomisedCard: FC<Props> = ({ data }) => {
     <div className='relative flex bg-gray-800 flex-col items-center rounded-md mr-5 mb-10 min-w-[280px] max-w-[280px]'>
       {main_thumb && (
         <Image
-          priority
-          className='absolute opacity-20 h-44 w-full object-fill rounded-t-md'
+          className='absolute opacity-20 h-44 w-full object-cover rounded-t-md'
           width={300}
           height={15}
           src={main_thumb}

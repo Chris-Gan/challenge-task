@@ -8,13 +8,13 @@ interface Props {
 }
 
 const GridListing: FC<Props> = ({ data }) => {
-  const ITEMS_COUNT = data.data.length;
+  const ITEMS_COUNT = data?.data?.length ?? 0;
   const totalPages = Math.ceil(data.meta.total_records / ITEMS_COUNT);
 
   return (
     <>
       <div className='flex justify-start flex-wrap max-w-[1200px] mx-auto w-full'>
-        {data.data.map((item) => (
+        {data?.data?.map((item) => (
           <CustomisedCard key={item.id} data={item} />
         ))}
         <CircularPagination totalPages={totalPages} />

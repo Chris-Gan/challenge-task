@@ -60,7 +60,6 @@ export const getListings = async (
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        'Cache-control': 'no-cache',
       },
       body: JSON.stringify(postRequestPayload),
     },
