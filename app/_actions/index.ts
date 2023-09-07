@@ -1,4 +1,5 @@
 'use server';
+import mockResponse from '../../mockResponse.json';
 
 import {
   GetListingsPayload,
@@ -53,18 +54,26 @@ export const getListings = async (
     state: 'read',
     rules: JSON.stringify(rulesPayload),
   };
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_SWS_BASE_URL}api/grid/filter?include=grid,score`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SWS_BASE_URL}api/grid/filter?include=grid,score`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(postRequestPayload),
       },
-      body: JSON.stringify(postRequestPayload),
-    },
-  );
+    );
 
-  const data = (await response.json()) as ResponseInterface;
-  return data;
+    if (!response.ok) {
+      throw new Error('API call failed');
+    }
+
+    const data = (await response.json()) as ResponseInterface;
+    return data;
+  } catch (error) {
+    return mockResponse as ResponseInterface;
+  }
 };
