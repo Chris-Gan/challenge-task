@@ -6,7 +6,10 @@ const AdvancedFilterButton = () => {
       <button className='whitespace-nowrap text-[0.9rem]'>
         Advanced Filter
       </button>
-      <AdjustmentsHorizontalIcon className='text-gray-300 w-5 h-5 mx-2' />
+      <AdjustmentsHorizontalIcon
+        data-testid='advanced-filter-icon'
+        className='text-gray-300 w-5 h-5 mx-2'
+      />
     </div>
   );
 };

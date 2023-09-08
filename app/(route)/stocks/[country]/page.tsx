@@ -1,3 +1,3 @@
 export default function Stocks() {
-  return <div></div>;
+  return <div data-testid='country-page'></div>;
 }

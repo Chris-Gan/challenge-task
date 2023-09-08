@@ -15,6 +15,7 @@ const Tooltip: FC<Props> = ({
 
   return (
     <div
+      data-testid='info-tooltip'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className='relative inline-block mt-3' // This ensures positioning context for the absolute tooltip

@@ -1,4 +1,7 @@
 name: CI upon pull request
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
   # Runs on pushes targeting the default branch
@@ -68,9 +71,38 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      - name: Install SWC dependencies
+        run: npm install --save @next/swc-linux-x64-gnu @next/swc-linux-x64-musl
+
+      - name: Clear .next cache
+        run: rm -rf .next
+
+      - name: Set SWC Environment Variables
+        run: echo "NEXT_PRIVATE_SWC_USE_DYNAMIC_WORKER=true" >> $GITHUB_ENV && echo "SWC_LOADER_CACHE=false" >> $GITHUB_ENV
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Lint with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next lint
+      - name: Run Unit Test
+        run: ${{ steps.detect-package-manager.outputs.runner }} jest
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+
+  deploy_to_vercel:
+    needs: [build] # This job will only run if the "build" job completed successfully
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Vercel CLI
+        run: npm i -g vercel
+
+      - name: Pull Vercel Environment information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

@@ -11,7 +11,7 @@ import {
   generateInitialIndustryOption,
   generateRedirectPath,
   reassignParams,
-} from '@/app/helper';
+} from '@/app/_helper';
 import { Squares2X2Icon } from '@heroicons/react/24/solid';
 import { useRouter, useParams } from 'next/navigation';
 import { FC, MouseEvent, useState } from 'react';

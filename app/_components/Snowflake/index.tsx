@@ -13,8 +13,12 @@ import { FC, useMemo, memo } from 'react';
 import {
   rotatePointLabelsPlugin,
   stripedBackgroundPlugin,
-} from '@/app/helper/chartjs';
-import { generateChartData, getBorderColor, getChartColor } from '@/app/helper';
+} from '@/app/_helper/chartjs';
+import {
+  generateChartData,
+  getBorderColor,
+  getChartColor,
+} from '@/app/_helper';
 import { snowflakeLables } from '@/app/_assets/snowflakes';
 import { ScoreData } from '@/app/_types/services';
 
@@ -44,7 +48,7 @@ const Snowflake: FC<Props> = ({ scoreData }) => {
 
   const chartData = useMemo(() => generateChartData(scoreData), [scoreData]);
   return (
-    <div className='relative w-[14rem] top-3'>
+    <div className='relative w-[14rem] top-3' data-testid='snowflake-score'>
       <Radar
         options={{
           maintainAspectRatio: false,

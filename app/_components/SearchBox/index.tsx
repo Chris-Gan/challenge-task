@@ -12,7 +12,10 @@ const SearchBox: FC<Props> = ({ placeholder = '150k companies worldwide' }) => {
           htmlFor='searchField'
           className='relative text-gray-400 focus-within:text-gray-600 block min-w-[300px]'
         >
-          <MagnifyingGlassIcon className='pointer-events-none w-5 h-5 absolute top-1/2 transform -translate-y-1/2 left-3 text-sws_blue' />
+          <MagnifyingGlassIcon
+            data-testid='magnifying-glass-icon'
+            className='pointer-events-none w-5 h-5 absolute top-1/2 transform -translate-y-1/2 left-3 text-sws_blue'
+          />
 
           <input
             type='search'
