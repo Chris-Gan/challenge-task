@@ -25,7 +25,7 @@ describe('CustomisedDropdown', () => {
 
   it('renders dropdown button correctly', () => {
     expect(screen.getByTestId('dropdown-button')).toBeInTheDocument();
-    expect(screen.queryByRole('searchbox')).not.toBeInTheDocument(); // dropdown is initially closed
+    expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();
   });
 
   it('toggles dropdown on button click', () => {
