@@ -1586,8 +1586,8 @@
     }
   ],
   "meta": {
-    "total_records": 5463,
-    "real_total_records": 5463,
+    "total_records": 19,
+    "real_total_records": 19,
     "state": "read",
     "noResultIfLimit": false,
     "pe": 15.646167500000001,
