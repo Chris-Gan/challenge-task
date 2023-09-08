@@ -80,9 +80,15 @@ const CustomisedDropdown: FC<Props> = ({
                     }
                   >
                     {isSelected && (
-                      <CheckIcon className='h-4 w-4 mr-2 text-green-400 hover:text-white' />
+                      <CheckIcon
+                        data-testid='check-icon'
+                        className='h-4 w-4 mr-2 text-green-400 hover:text-white'
+                      />
                     )}
-                    <span className={isSelected ? 'font-semibold' : ''}>
+                    <span
+                      data-testid='option-values'
+                      className={isSelected ? 'font-semibold' : ''}
+                    >
                       {option.label}
                     </span>
                   </div>

@@ -18,7 +18,10 @@ const CustomisedCard: FC<Props> = ({ data }) => {
   const { main_thumb, primary_industry } = gridData;
 
   return (
-    <div className='relative flex bg-gray-800 flex-col items-center rounded-md mr-5 mb-10 min-w-[280px] max-w-[280px]'>
+    <div
+      data-testid='customised-card'
+      className='relative flex bg-gray-800 flex-col items-center rounded-md mr-5 mb-10 min-w-[280px] max-w-[280px]'
+    >
       {main_thumb && (
         <Image
           className='absolute opacity-20 h-44 w-full object-cover rounded-t-md'

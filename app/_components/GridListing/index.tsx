@@ -1,7 +1,7 @@
 import { ResponseInterface } from '@/app/_types/services';
 import { FC } from 'react';
 import CustomisedCard from '../CustomisedCard';
-import { CircularPagination } from '../Pagination';
+import CircularPagination from '../Pagination';
 
 interface Props {
   data: ResponseInterface;

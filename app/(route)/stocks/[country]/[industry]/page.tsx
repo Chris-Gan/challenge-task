@@ -5,7 +5,7 @@ import {
   getFilterPayloadArray,
   getIndustryId,
   reassignParams,
-} from '@/app/helper';
+} from '@/app/_helper';
 export default async function Stocks({
   params,
   searchParams,

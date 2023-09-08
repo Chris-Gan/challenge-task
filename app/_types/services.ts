@@ -25,23 +25,23 @@ export interface CurrencyDetails {
 
 export interface GridDetails {
   data: {
-    year_founded: number;
+    year_founded: number | null;
     description: string;
     logo_url: string;
-    share_price: number;
-    market_cap: number;
-    pe: number;
-    pb: number;
-    price_to_sales: number;
-    analyst_count: number;
-    return_1d: number;
-    return_7d: number;
-    return_1yr_abs: number;
-    price_target: number;
-    growth_3y: number;
-    net_income_growth_annual: number;
-    revenue_growth_annual: number;
-    dividend_yield: number;
+    share_price: number | null;
+    market_cap: number | null;
+    pe: number | null;
+    pb: number | null;
+    price_to_sales: number | null;
+    analyst_count: number | null;
+    return_1d: number | null;
+    return_7d: number | null;
+    return_1yr_abs: number | null;
+    price_target: number | null;
+    growth_3y: number | null;
+    net_income_growth_annual: number | null;
+    revenue_growth_annual: number | null;
+    dividend_yield: number | null;
     primary_industry: { id: number; name: string };
     currency_info: CurrencyDetails;
     main_thumb: string;
