@@ -76,3 +76,16 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} jest
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+
+    deploy_to_vercel:
+      needs: [build] # This job will only run if the "build" job completed successfully
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Install Vercel CLI
+          run: npm i -g vercel
+
+        - name: Deploy to Vercel
+          run: vercel deploy --token ${{ secrets.VERCEL_TOKEN }}
