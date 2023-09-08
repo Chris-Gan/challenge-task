@@ -129,9 +129,9 @@ describe('<CustomisedCard />', () => {
 
   it('renders CardHeader with correct props', () => {
     const screen = render(<CustomisedCard data={mockData} />);
-    expect(screen.getByText('AAPL')).toBeInTheDocument(); // firmAbbreviation
-    expect(screen.getByText('Consumer Retailing')).toBeInTheDocument(); // industry
-    expect(screen.getByText('Apple Inc.')).toBeInTheDocument(); // firmName
+    expect(screen.getByText('AAPL')).toBeInTheDocument();
+    expect(screen.getByText('Consumer Retailing')).toBeInTheDocument();
+    expect(screen.getByText('Apple Inc.')).toBeInTheDocument();
   });
 
   it('renders CardBody with correct props', () => {
