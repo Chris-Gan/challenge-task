@@ -17,8 +17,8 @@ const GridListing: FC<Props> = ({ data }) => {
         {data?.data?.map((item) => (
           <CustomisedCard key={item.id} data={item} />
         ))}
-        <CircularPagination totalPages={totalPages} />
       </div>
+      <CircularPagination totalPages={totalPages} />
     </>
   );
 };
