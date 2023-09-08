@@ -12,7 +12,7 @@ const Navbar = () => {
               priority
               className='inline xl:hidden'
               src='/mobile-company-logo.png'
-              alt='simply-wall-st-logo'
+              alt='simply-wall-st-mobile-logo'
               height={40}
               width={40}
             />
@@ -20,7 +20,7 @@ const Navbar = () => {
               priority
               className='hidden xl:inline-block'
               src='/desktop-company-logo.svg'
-              alt='simply-wall-st-logo'
+              alt='simply-wall-st-desktop-logo'
               width={160}
               height={60}
             />

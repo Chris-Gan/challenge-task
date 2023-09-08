@@ -23,7 +23,7 @@ interface Props {
     isSelected: boolean,
   ) => void;
 }
-const CustomisedDropdown: FC<Props> = ({
+const CustomisedDropdownWithSearch: FC<Props> = ({
   dropdownName,
   optionsArr,
   searchTabPlaceholder,
@@ -85,6 +85,7 @@ const CustomisedDropdown: FC<Props> = ({
       <div className='relative' ref={dropdownRef}>
         <button
           onClick={handleButtonOnClick}
+          data-testid='dropdown-button'
           className='flex items-center justify-center space-x-2 bg-transparent text-white border-2 border-sws_grey px-2 py-1 rounded-2xl hover:bg-gray-800 transition duration-600 mr-2'
         >
           <span className='text-[0.8rem]'>
@@ -118,9 +119,16 @@ const CustomisedDropdown: FC<Props> = ({
                       }
                     >
                       {isSelected && (
-                        <CheckIcon className='h-4 w-4 mr-2 text-green-400 hover:text-white' />
+                        <CheckIcon
+                          data-testid='check-icon'
+                          className='h-4 w-4 mr-2 text-green-400 hover:text-white'
+                        />
                       )}
-                      <span className={isSelected ? 'font-semibold' : ''}>
+                      <span
+                        id='dropdown-option'
+                        data-testid='option-values'
+                        className={isSelected ? 'font-semibold' : ''}
+                      >
                         {option.label}
                       </span>
                     </div>
@@ -135,4 +143,4 @@ const CustomisedDropdown: FC<Props> = ({
   );
 };
 
-export default CustomisedDropdown;
+export default CustomisedDropdownWithSearch;

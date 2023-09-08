@@ -36,7 +36,10 @@ export const CircularPagination: FC<Props> = ({ totalPages }) => {
     setActive((prev) => prev - 1);
   };
   return (
-    <div className='flex justify-center items-center max-w-[1200px] mt-2 pt-2 border-t-2 border-t-gray-600 flex-grow mx-auto'>
+    <div
+      data-testid='pagination'
+      className='flex justify-center items-center max-w-[1200px] mt-2 pt-2 border-t-2 border-t-gray-600 flex-grow mx-auto'
+    >
       <Link
         className={`relative block rounded bg-transparent px-3 py-1.5 text-sm text-gray-500 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white ${
           isFirstPage && 'pointer-events-none bg-gray-700'

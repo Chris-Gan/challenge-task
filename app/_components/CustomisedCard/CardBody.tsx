@@ -22,14 +22,14 @@ const CardBody: FC<Props> = ({ data }) => {
     currency_info: { reporting_currency_iso, reporting_currency_symbol },
   } = data;
   const currencyIso = reporting_currency_iso.toLowerCase();
-  const formattedStockPrice = share_price.toLocaleString(currencyIso, {
+  const formattedStockPrice = share_price?.toLocaleString(currencyIso, {
     style: 'currency',
     currency: reporting_currency_iso,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 
-  const formattedMarketCap = market_cap.toLocaleString(currencyIso, {
+  const formattedMarketCap = market_cap?.toLocaleString(currencyIso, {
     style: 'currency',
     currency: reporting_currency_iso,
     notation: 'compact',
@@ -66,14 +66,14 @@ const CardBody: FC<Props> = ({ data }) => {
           <div className='flex flex-1'>
             <KeyValueDetails
               label='7D'
-              value={return_7d}
+              value={return_7d ?? 'n/a'}
               defaultValueStyle
               containerStyle={['mr-3']}
             />
             <KeyValueDetails
               defaultValueStyle
               label='1Y'
-              value={return_1yr_abs}
+              value={return_1yr_abs ?? 'n/a'}
             />
           </div>
         </div>
@@ -95,7 +95,7 @@ const CardBody: FC<Props> = ({ data }) => {
             <KeyValueDetails
               valueStyle={['text-gray-400']}
               label='E.Growth'
-              value={growth_3y}
+              value={growth_3y ?? 'n/a'}
             />
           </div>
         </div>
