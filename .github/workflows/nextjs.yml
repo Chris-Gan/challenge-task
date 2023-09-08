@@ -73,6 +73,6 @@ jobs:
       - name: Lint with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next lint
       - name: Run Unit Test
-        run: ${{ steps.detect-package-manager.outputs.runner }} next lint
-      - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} jest
+      - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
