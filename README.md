@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Project Instructions 🚀
 
-First, run the development server:
+## 🛠 Development
 
+### 🏃‍♂️ Running Locally
+To run the project in your local environment:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔍 Analyzing Bottlenecks
+To check for any performance bottlenecks:
+```bash
+npm run analyze
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🧪 Unit Tests
+To run the unit tests:
+```bash
+npm run test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### ✨ Enhancements
+- **Server Side Rendering**: Implemented using NestJS 13.4.
 
-## Learn More
+- 🎨 **Design**: Page creation uses **Tailwind CSS**. This approach minimizes dependencies on other design systems and ensures an optimized bundle size.
 
-To learn more about Next.js, take a look at the following resources:
+- 🔄 **CI/CD**: Leveraging GitHub Actions and Vercel for every pull request. Here's how it works:
+    - Upon making a pull request to the master branch, the CI process kicks off.
+    - Checks include unit testing and linting.
+    - Post successful CI build, auto deployment is initiated on Vercel.
+ <img width="947" alt="image" src="https://github.com/Chris-Gan/challenge-task/assets/99733425/12abf8f7-5ac4-4b7a-87dd-1fde36eb9175">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🌍 Live Website
+Check out the demo website <a href="https://sws-coding-test.vercel.app/stocks/au/market-cap-large" target="_blank">here </a>.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+🚫 Note: This is a dummy version due to IP whitelisting constraints, preventing requests to the provided API at simplywall.st.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+⚠️ Reminder
+If you're cloning the project, ensure your local machine's IP is whitelisted. Without this, all your requests will fail.
